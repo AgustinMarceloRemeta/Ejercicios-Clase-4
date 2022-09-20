@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 0, z: 0}
+  defaultObject: espada
   textWeapon: {fileID: 108082765}
 --- !u!4 &613194613
 Transform:
@@ -814,7 +815,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 613194612}
         m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
-        m_MethodName: InstanciateNewWeapon
+        m_MethodName: FindNewWeapon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

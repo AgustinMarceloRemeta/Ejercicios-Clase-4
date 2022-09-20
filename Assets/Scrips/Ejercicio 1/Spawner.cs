@@ -6,23 +6,32 @@ public class Spawner : MonoBehaviour
 {
     List<GameObject> weapons;
     [SerializeField] Vector3 spawnPosition;
+    [SerializeField] string defaultObject;
     [SerializeField] Text textWeapon;
     void Start()
     {
      weapons = new List<GameObject>(Resources.LoadAll<GameObject>("Armas"));
     }
 
-    public void InstanciateNewWeapon()
+    public void FindNewWeapon()
     {
         foreach (var item in weapons)
         {
             if(item.name == textWeapon.text)
             {
-                Destroy(GameObject.FindGameObjectWithTag("Weapon"));
-                Instantiate(item, spawnPosition, Quaternion.identity);
+                InstanciateObject(item);
                 return;
             }    
         }
-        Debug.Log("No weapons found");
+      
+        Debug.Log(textWeapon.text+ " was not found, spawning " + defaultObject);
+        GameObject spawnDefault = weapons.Find(item => item.name == defaultObject);
+        InstanciateObject(spawnDefault);
+    }
+    public void InstanciateObject(GameObject spawnObject)
+    {
+        Destroy(GameObject.FindGameObjectWithTag("Weapon"));
+        Instantiate(spawnObject, spawnPosition, Quaternion.identity);
+        return;
     }
 }

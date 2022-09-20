@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxBullets: 6
   bullets: 0
+  reloadTime: 1
   bulletsText: {fileID: 1764085501}
 --- !u!4 &116376989
 Transform:

@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
     {
         foreach (var item in weapons)
         {
-            if(item.name == textWeapon.text)
+            if(item.name == textWeapon.text.ToLower())
             {
                 InstanciateObject(item);
                 return;

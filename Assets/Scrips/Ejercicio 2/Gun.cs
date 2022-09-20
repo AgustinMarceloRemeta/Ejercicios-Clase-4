@@ -23,7 +23,7 @@ public class Gun : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) Shoot();
-        if ((bullets <= 0 || Input.GetKeyDown("r")) && bullets< maxBullets && !isReloadind) StartCoroutine(Reload(reloadTime));
+        if ((bullets <= 0 || Input.GetKeyDown(KeyCode.R)) && bullets< maxBullets && !isReloadind) StartCoroutine(Reload(reloadTime));
     }
 
     void Shoot()

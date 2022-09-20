@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Given : MonoBehaviour
+public class Die : MonoBehaviour
 {
     [SerializeField] int maxGiven;
     int bonus;

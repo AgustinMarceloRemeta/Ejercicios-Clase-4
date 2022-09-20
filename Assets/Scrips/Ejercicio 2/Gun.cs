@@ -4,12 +4,13 @@ using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] int maxBullets,bullets;
+    [SerializeField] int maxBullets, bullets; 
+    [SerializeField] float reloadTime;
     [SerializeField] Text bulletsText;
-    bool isReload;
+    bool isReloadind;
     void Start()
     {
-        isReload = false;
+        isReloadind = false;
         bullets = maxBullets;
         AsignText();
     }
@@ -22,7 +23,7 @@ public class Gun : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) Shoot();
-        if ((bullets <= 0 || Input.GetKeyDown("r")) && bullets< maxBullets && !isReload) StartCoroutine(Reload(1));
+        if ((bullets <= 0 || Input.GetKeyDown("r")) && bullets< maxBullets && !isReloadind) StartCoroutine(Reload(reloadTime));
     }
 
     void Shoot()
@@ -33,17 +34,17 @@ public class Gun : MonoBehaviour
             print("pum");
             bullets--;
             AsignText();
-            isReload = false;
+            isReloadind = false;
         }
     }
     IEnumerator Reload(float timeToReturn)
     {
-        isReload = true;
+        isReloadind = true;
         yield return new WaitForSeconds(timeToReturn);
         bullets++;
         AsignText();
         print("Bullet++");
         if (bullets < maxBullets) StartCoroutine(Reload(1));
-        else isReload = false;
+        else isReloadind = false;
     }
 }

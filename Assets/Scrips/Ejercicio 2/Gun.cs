@@ -1,16 +1,23 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
     [SerializeField] int maxBullets,bullets;
+    [SerializeField] Text bulletsText;
     bool isReload;
     void Start()
     {
         isReload = false;
         bullets = maxBullets;
+        AsignText();
     }
 
+    private void AsignText()
+    {
+        bulletsText.text = "Balas: " + bullets;
+    }
 
     void Update()
     {
@@ -25,6 +32,7 @@ public class Gun : MonoBehaviour
             StopAllCoroutines();
             print("pum");
             bullets--;
+            AsignText();
             isReload = false;
         }
     }
@@ -33,6 +41,7 @@ public class Gun : MonoBehaviour
         isReload = true;
         yield return new WaitForSeconds(timeToReturn);
         bullets++;
+        AsignText();
         print("Bullet++");
         if (bullets < maxBullets) StartCoroutine(Reload(1));
         else isReload = false;

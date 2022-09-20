@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Extra : MonoBehaviour
@@ -10,7 +9,7 @@ public class Extra : MonoBehaviour
     public void Activate()
     {
         isActive = !isActive;
-        UiManager.EventUi ?.Invoke();
+        UiManager.eventUi ?.Invoke();
         ExtraManager.findEvent?.Invoke();
     }
 }

@@ -1,19 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class Given : MonoBehaviour
 {
-    [SerializeField] int MaxGiven;
+    [SerializeField] int maxGiven;
     int bonus;
-    [SerializeField]Text NumberGiven, NumberGivenExtra;
+    [SerializeField]Text numberGiven, numberGivenExtra;
 
     public void ThrowGiven()
     {
-        int givenNumber = UnityEngine.Random.Range(1, MaxGiven + 1);
-        NumberGiven.text = givenNumber.ToString();
+        int givenNumber = UnityEngine.Random.Range(1, maxGiven + 1);
+        numberGiven.text = givenNumber.ToString();
         givenNumber += bonus;
-        NumberGivenExtra.text = givenNumber.ToString();
+        numberGivenExtra.text = givenNumber.ToString();
     }
     void SetBonus(int newBonus)
     {

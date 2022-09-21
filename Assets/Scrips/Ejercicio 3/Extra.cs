@@ -7,9 +7,11 @@ public class Extra : MonoBehaviour
     public bool isActive;
 
     public void Activate()
+
     {
         isActive = !isActive;
         UiManager.eventUi ?.Invoke();
         ExtraManager.findEvent?.Invoke();
     }
+
 }

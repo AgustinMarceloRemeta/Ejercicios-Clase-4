@@ -7,8 +7,6 @@ public class UiManager : MonoBehaviour
     [SerializeField] Text listExtras;
     public static Action eventUi;
 
-    
-
     void Start()
     {
         AsignListExtras();
@@ -28,12 +26,15 @@ public class UiManager : MonoBehaviour
             
         }
     }
+
     private void OnEnable()
     {
         eventUi += AsignListExtras;
     }
+
     private void OnDisable()
     {
         eventUi -= AsignListExtras;
     }
+
 }

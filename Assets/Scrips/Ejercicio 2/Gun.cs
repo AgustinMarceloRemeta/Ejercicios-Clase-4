@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     [SerializeField] float reloadTime;
     [SerializeField] Text bulletsText;
     bool isReloadind;
+
     void Start()
     {
         isReloadind = false;
@@ -37,6 +38,7 @@ public class Gun : MonoBehaviour
             isReloadind = false;
         }
     }
+
     IEnumerator Reload(float timeToReturn)
     {
         isReloadind = true;
@@ -47,4 +49,6 @@ public class Gun : MonoBehaviour
         if (bullets < maxBullets) StartCoroutine(Reload(1));
         else isReloadind = false;
     }
+
 }
+

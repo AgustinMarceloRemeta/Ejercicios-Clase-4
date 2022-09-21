@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] Vector3 spawnPosition;
     [SerializeField] string defaultObject;
     [SerializeField] Text textWeapon;
+
     void Start()
     {
      weapons = new List<GameObject>(Resources.LoadAll<GameObject>("Armas"));
@@ -28,10 +29,12 @@ public class Spawner : MonoBehaviour
         GameObject spawnDefault = weapons.Find(item => item.name == defaultObject);
         InstanciateObject(spawnDefault);
     }
+
     public void InstanciateObject(GameObject spawnObject)
     {
         Destroy(GameObject.FindGameObjectWithTag("Weapon"));
         Instantiate(spawnObject, spawnPosition, Quaternion.identity);
         return;
     }
+
 }

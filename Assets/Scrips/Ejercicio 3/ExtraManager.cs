@@ -5,7 +5,7 @@ public class ExtraManager : MonoBehaviour
 {
     public static Action<int> extraEvent;
     public static Action findEvent;
-    Extra[] extras;
+    Extra[] extras; 
 
     private void Start()
     {
@@ -27,8 +27,10 @@ public class ExtraManager : MonoBehaviour
     {
         findEvent += FindExtras;
     }
+
     private void OnDisable()
     {
         findEvent -= FindExtras;
     }
+
 }

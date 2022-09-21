@@ -23,18 +23,6 @@ public class ExtraManager : MonoBehaviour
         extraEvent?.Invoke(value);
     }
 
-    private void Update()
-    {
-        if (Input.anyKeyDown) ActivateExtras();
-    }
-
-    void ActivateExtras()
-    {
-        for (int i = 0; i < extras.Length; i++)
-        {
-            if (Input.GetKeyDown((i+1).ToString())) extras[i].Activate();
-        }
-    }
     private void OnEnable()
     {
         findEvent += FindExtras;
